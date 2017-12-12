@@ -262,8 +262,9 @@
         this.searchCondition.currentPage = this.currentPage;
         this.searchCondition.pageSize = 5;
         console.log(this.searchCondition);
+        var that = this;
         this.$http.jsonp(this.GLOBAL.host+"/auth/user/user!new",{
-                params : searchCondition
+                params : that.searchCondition
             }).then(function(res){
           this.message = res.data;
           console.log(this.message)

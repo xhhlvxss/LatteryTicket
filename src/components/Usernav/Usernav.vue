@@ -1,17 +1,19 @@
 <template>
   <div class="user_header">
-    <div class="logo"></div>
+    <div class="logo">
+      <img src="./logo.png">
+    </div>
     
     <el-menu
       :default-active="activeIndex2"
       class="el-menu-demo"
       mode="horizontal"
       @select="handleSelect"
-      background-color="#545c64"
+      background-color="#FA5555"
       text-color="#fff"
       active-text-color="#ffd04b">
       <el-submenu index="1">
-        <template slot="title"><a href="https://www.ele.me" target="_blank">购票大厅</a></template>
+        <template slot="title"><a href="" target="_blank">购票大厅</a></template>
         <div class="play_list">
           <div class="official">
             <h3>官方玩法</h3>
@@ -33,11 +35,11 @@
         
         
       </el-submenu>
-      <el-menu-item index="2"><a href="https://www.ele.me" target="_blank">返回大厅</a></el-menu-item>
-      <el-menu-item index="3"><a href="https://www.ele.me" target="_blank">联系客服</a></el-menu-item>
-      <el-menu-item index="4"><a href="https://www.ele.me" target="_blank">规则说明</a></el-menu-item>
-      <el-menu-item index="5"><a href="https://www.ele.me" target="_blank">游戏帮助</a></el-menu-item>
-      <el-menu-item index="6"><a href="https://www.ele.me" target="_blank">登出账号</a></el-menu-item>
+      <el-menu-item index="2"><a href="" target="_blank">返回大厅</a></el-menu-item>
+      <el-menu-item index="3"><a href="" target="_blank">联系客服</a></el-menu-item>
+      <el-menu-item index="4"><a href="" target="_blank">规则说明</a></el-menu-item>
+      <el-menu-item index="5"><a href="" target="_blank">游戏帮助</a></el-menu-item>
+      <el-menu-item index="6"><a href="" target="_blank">登出账号</a></el-menu-item>
     </el-menu>
 
   </div>
@@ -81,5 +83,9 @@ export default {
   }
   .play_list .credit{
     flex: 1;
+  }
+  .el-menu{
+    background-color: transparent!important;
+    border-bottom: 0
   }
 </style>

@@ -136,7 +136,7 @@
 
 <script>
 	import Usernav from 'components/Usernav/Usernav'
-	import page from 'components/Page.vue'
+	import page from 'components/User/Page.vue'
 	export default {
     name: 'app',
     components: {
@@ -155,7 +155,9 @@
 </script>
 
 <style scoped>
-
+	#app{
+    background: #363636;
+  }
 	.main{
 		display: flex;
 	}

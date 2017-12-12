@@ -2,7 +2,7 @@ import Vue from 'vue'
 import App from './App'
 import VueRouter from 'vue-router'
 import VueResource from 'vue-resource'
-import routeConfig from './router/router-config'
+import routeConfig from 'components/router/router-config'
 import 'common/css/reset.css'
 import global_ from 'common/js/common.js'
 

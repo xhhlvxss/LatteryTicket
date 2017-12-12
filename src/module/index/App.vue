@@ -12,7 +12,7 @@
     </div>
     <div class="header">
       <ul class="header_top">
-        <li>logo</li>
+        <li><img src="./images/logo.png"></li>
         <li>账号:<span>r4rwe</span></li>
         <li>余额:<span>0</span></li>
         <li><a href="">充值</a></li>
@@ -21,7 +21,7 @@
       </ul>
 
     </div>
-    <el-dialog title="收货地址" :visible.sync="dialogTableVisible">
+    <el-dialog title="平台公告" :visible.sync="dialogTableVisible">
       <el-tabs :tab-position="tabPosition" style="height: 200px;">
         <el-tab-pane label="用户管理">用户管理</el-tab-pane>
         <el-tab-pane label="配置管理">配置管理</el-tab-pane>
@@ -30,7 +30,7 @@
       </el-tabs>
     </el-dialog>
     <div>
-      <el-carousel :interval="4000" type="card" height="500px">
+      <el-carousel :interval="4000" type="card" height="400px">
         <el-carousel-item v-for="item in 6" :key="item">
           <h3>{{ item }}</h3>
         </el-carousel-item>
@@ -61,15 +61,18 @@
   .top{
     background: url(./images/top_bg.png);
     display: flex;
-    height: 50px
+    height: 50px;
+    line-height: 50px
   }
   .top_left{
     flex: 1;
+    padding-left: 120px
   }
   .top_right{
     flex: 1;
     display: flex;
     justify-content: flex-end;
+    padding-right: 120px
   }
   .header_top{
     display: flex;
@@ -85,6 +88,16 @@
   .el-carousel__item{
     background: url(./images/01.jpg);
     background-size: 100% 100%;
+  }
+
+  .el-dialog__header{
+    background: url(./images/top_bg.png);
+  }
+  .el-dialog__header .el-dialog__title{
+    color: #FFFFFF;
+  }
+  .el-dialog__headerbtn .el-dialog__close{
+    color: #FFFFFF!important;
   }
 
 </style>
