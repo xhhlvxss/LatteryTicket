@@ -1,0 +1,43 @@
+<template>
+	<div>
+		<el-breadcrumb separator-class="el-icon-arrow-right">
+      <el-breadcrumb-item>用户中心</el-breadcrumb-item>
+      <el-breadcrumb-item>代理管理</el-breadcrumb-item>
+      <el-breadcrumb-item>推广注册</el-breadcrumb-item>
+    </el-breadcrumb>
+		
+	</div>
+  
+</template>
+<script>
+	export default {
+
+    data: function () {
+      return {
+      	
+
+      }
+    },
+    methods: {
+    	
+    },
+    mounted(){
+				
+			},
+    created() {
+    	// let _params = this.$route.params || [],
+					// _currentDay = moment().format('YYYY-MM-DD'),
+					// startTime = _params.startTime || _currentDay,
+					// endTime = _params.endTime || _currentDay;
+
+    }
+  }
+		
+	
+
+	// window.hasNeedReload = true;
+</script>
+
+<style>
+	
+</style>
