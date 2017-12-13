@@ -21,7 +21,7 @@ import page from 'components/User/Page.vue'
 export default [
   {
     path: '/',
-    component:page,
+    component:page11,
     children:[
       { path: 'page11', component: page11 },
       { path: 'page12', component: page12 },

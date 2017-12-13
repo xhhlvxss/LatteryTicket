@@ -9,7 +9,7 @@
       class="el-menu-demo"
       mode="horizontal"
       @select="handleSelect"
-      background-color="#FA5555"
+      background-color="#c62133"
       text-color="#fff"
       active-text-color="#ffd04b">
       <el-submenu index="1">
@@ -64,6 +64,9 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
+  .el-menu.el-menu-demo {
+    padding-right: 20px;
+  }
   .user_header{
     display: flex;
   }
@@ -88,4 +91,21 @@ export default {
     background-color: transparent!important;
     border-bottom: 0
   }
+  .el-submenu {
+    margin: 6px;
+  }
+  .el-submenu > .el-submenu__title {
+    height: 40px;
+    line-height: 40px;
+    border-radius: 10px;
+  }
+  .el-menu--horizontal .el-submenu .el-submenu__title {
+    height: 40px;
+    line-height: 40px;
+  }
+  .el-menu--horizontal > .el-menu-item {
+    margin: 6px;
+    background: #fff
+  }
+
 </style>

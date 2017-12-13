@@ -1,11 +1,11 @@
 <template>
   <div>
-    <el-breadcrumb separator-class="el-icon-arrow-right">
+    <el-breadcrumb class="location-nav" separator-class="el-icon-arrow-right">
       <el-breadcrumb-item>用户中心</el-breadcrumb-item>
       <el-breadcrumb-item>投注记录</el-breadcrumb-item>
       <el-breadcrumb-item>购彩查询</el-breadcrumb-item>
     </el-breadcrumb>
-    <div class="searchBox">
+    <div class="search-box">
       <div class="block">
         <div class="d_i">
           <span>起止时间：</span>
@@ -17,13 +17,12 @@
             end-placeholder="结束日期">
           </el-date-picker>
         </div>
-
         <div class="d_i ml5">
           <span>用户名：</span>
           <el-input class="input-search" v-model="searchCondition.userName" placeholder="请输入姓名"></el-input>
         </div>
         <div class="d_i ml5">
-          <el-checkbox v-model="searchCondition.checked">包含下级</el-checkbox>
+          <el-checkbox class="danger" v-model="searchCondition.checked">包含下级</el-checkbox>
         </div>
       </div>
       <div class="block mt8">
@@ -62,7 +61,7 @@
           </el-select>
         </div>
         <div class="d_i ml5">
-          <button @click="runSearch" type="button" class="el-button el-button--primary"><i class="el-icon-search"></i><span>筛选</span></button>
+          <button @click="runSearch" type="button" class="el-button el-button--danger"><i class="el-icon-search"></i><span>筛选</span></button>
         </div>
         
       </div>
@@ -72,7 +71,7 @@
     <div>
       <el-table
         :data="tableData"
-        height="250"
+        height="482"
         border
         style="width: 100%">
         <el-table-column
@@ -127,7 +126,7 @@
     </div>
         
 
-    <div class="block" style="text-align: center;padding-top: 20px;">
+    <div class="block" style="text-align: center;padding-top: 20px;background: #fff">
       <el-pagination
         @size-change="handleSizeChange"
         @current-change="handleCurrentChange"
@@ -208,6 +207,26 @@
             date: '2016-05-07',
             name: '王小虎',
             address: '上海市'
+          }, {
+            date: '2016-05-07',
+            name: '王小虎',
+            address: '上海市'
+          }, {
+            date: '2016-05-07',
+            name: '王小虎',
+            address: '上海市'
+          }, {
+            date: '2016-05-07',
+            name: '王小虎',
+            address: '上海市'
+          }, {
+            date: '2016-05-07',
+            name: '王小虎',
+            address: '上海市'
+          }, {
+            date: '2016-05-07',
+            name: '王小虎',
+            address: '上海市'
           }]
 
       }
@@ -262,20 +281,33 @@
 
 <style>
   .el-breadcrumb{
-    margin: 10px 0 20px
+    margin: 10px 0 20px;
   }
- .searchBox{font-size: 12px;}
- .el-table{
-  font-size: 12px;
- }
+  .el-breadcrumb.location-nav { margin: 0; padding: 10px 0 10px 10px; background: #fff; }
+  .search-box{
+    padding: 20px 12px;
+    background: #ddd;
+    font-size: 12px;
+    border-radius: 0;
+    margin: 0;
+  }
+  .d_i > span {
+    font-size: 12px;
+    padding: 0 4px;
+  }
+  .d_i {
+    display: inline-flex;
+  }
+
+
+  .el-table{
+    font-size: 12px;
+  }
   .red {
     color: #dd4b39;
   }
   .green {
     color: #43bf61;
-  }
-  .d_i {
-    display: inline-block;
   }
   .mt8 {
     margin-top: 8px;
@@ -286,19 +318,12 @@
   .mb0 {
     margin-bottom: 0;
   }
-  .ml5{margin-left: 5px;}
   .floar_r {
     float: right;
   }
-  .input-search {
+  .el-input.input-search {
     display: inline-block;
-    width: 220px;
-  }
-  .searchBox {
-    padding: 20px 12px;
-    margin-bottom: 15px;
-    border-radius: 6px;
-    background: #ccc;
+    width: auto;
   }
   @media screen and (max-width: 374px) {
     .input-search {
