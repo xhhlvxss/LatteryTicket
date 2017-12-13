@@ -30,42 +30,31 @@
           <el-menu-item index="1-2">选项2</el-menu-item>
           <el-menu-item index="1-3">选项3</el-menu-item>
         </el-submenu> -->
-        <el-menu-item index="1"><a href="lottery.html"><i class="iconfont">&#xe638;</i>彩票大厅</a></el-menu-item>
+        <el-menu-item index="1"><a href="lottery.html"><i class="iconfont">&#xe638;</i>彩票大厅</a></el-menu-item>       
         <el-menu-item index="2"><a href="user.html"><i class="iconfont">&#xe617;</i>用户中心</a></el-menu-item>
-        <el-menu-item index="3"><a href="promotions.html"><i class="iconfont">&#xe637;</i>优惠活动</a></el-menu-item>
+        <el-menu-item index="3"><a href="#"><i class="iconfont">&#xe637;</i>优惠活动</a></el-menu-item>
         <el-menu-item index="4"><a href="#"><i class="iconfont">&#xe6eb;</i>平台公告</a></el-menu-item>
         <el-menu-item index="5"><a href="#"><i class="iconfont">&#xe64d;</i>彩种信息</a></el-menu-item>
         <el-menu-item index="6"><a href="#"><i class="iconfont">&#xe627;</i>手机下注</a></el-menu-item>
       </el-menu>
     </div>
-    
-    <div>
-      <el-carousel :interval="4000" type="card" height="400px">
-        <el-carousel-item v-for="item in 6" :key="item">
-          <h3>{{ item }}</h3>
-        </el-carousel-item>
-      </el-carousel>
-    </div>
     <div class="content">
-      <!-- <el-tabs type="border-card">
-        <el-tab-pane label="用户管理">用户管理</el-tab-pane>
-        <el-tab-pane label="配置管理">配置管理</el-tab-pane>
-        <el-tab-pane label="角色管理">角色管理</el-tab-pane>
-        <el-tab-pane label="定时任务补偿">定时任务补偿</el-tab-pane>
-      </el-tabs> -->
-      中间内容
+      <ul>
+        <li>
+          <div class="small_img"><img src="./images/01.jpg"></div>
+          <div class="activity">
+            <span class="activity_name">用户活动</span>
+            <button class="more" @click="show_activity=!show_activity">更多信息</button>
+          </div>
+          <div class="activity_detail" v-show="show_activity">
+            <img src="./images/01.jpg">
+          </div>
+        </li>
+      </ul>
     </div>
     <div class="footer">
       <div class="copyright">豪彩娱乐版权所有  Copyright © 2017 HaoCaiYuLe Co. Group All Rights Reserved</div>
     </div>
-    <el-dialog title="平台公告" :visible.sync="dialogTableVisible">
-      <el-tabs :tab-position="tabPosition" style="height: 200px;">
-        <el-tab-pane label="用户管理">用户管理</el-tab-pane>
-        <el-tab-pane label="配置管理">配置管理</el-tab-pane>
-        <el-tab-pane label="角色管理">角色管理</el-tab-pane>
-        <el-tab-pane label="定时任务补偿">定时任务补偿</el-tab-pane>
-      </el-tabs>
-    </el-dialog>
     <el-dialog title="提示" width="15%" :visible.sync="dialogTableVisible2" show-close = "false" class="login_box">
       <p>请先登录</p>
       <button @click="toLogin()">确定</button>
@@ -82,7 +71,7 @@
       return{
         dialogTableVisible: false,
         dialogTableVisible2: false,
-
+        show_activity: false,
         tabPosition: 'left',
         username:''
       }
@@ -111,6 +100,8 @@
 <style>
   #app{
     background: url(./images/01.jpg);
+    width: 100%;
+    height: 100%;
   }
   .top{
     background: url(./images/top_bg.png);
@@ -238,10 +229,7 @@
     background: url(./images/01.jpg);
     background-size: 100% 100%;
   }
-  .content{
-    height: 200px;
-    color: #FFFFFF;
-  }
+  
   .copyright{
     color: #FFFFFF;
     text-align: center;
@@ -275,5 +263,35 @@
     border-radius: 4px;
     margin: 0 auto;
     display: block;
+  }
+  /*活动内容*/
+  .content{
+    width: 70%;
+    margin: 0 auto;
+    border: 1px solid #071217;
+    background: #071217;
+    border-radius: 5px;
+    padding: 0px 40px;
+  }
+  .small_img img{
+    width: 100%;
+    height: 200px
+  }
+  .activity{
+    overflow: hidden;
+    margin: 20px 0;
+  }
+  .activity_name{
+    color: #FFFFFF;
+    float: left;
+  }
+  .more{
+    background: #F2F6FC;
+    float: right;
+    cursor: pointer;
+  }
+  .activity_detail img{
+    width: 100%;
+    height: auto;
   }
 </style>
