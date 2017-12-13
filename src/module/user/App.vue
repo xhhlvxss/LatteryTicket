@@ -13,10 +13,8 @@
 				    		<img src="">充值
 				    	</a>
 				    	<a href="">
-				    		<img src="">提现				    		
+				    		<img src="">					    		
 				    	</a>
-
-				    	
 				    </div>
 				    <el-menu
 				      default-active="2"
@@ -24,6 +22,7 @@
 				      @open="handleOpen"
 				      @close="handleClose"
 				      unique-opened="true"
+				      active-text-color="black"
 				      >
 				      <el-submenu index="1">
 				        <template slot="title">
@@ -122,12 +121,8 @@
 				    </el-menu>
 				  </el-col>
 				</el-row>
-
 			</div>
 			<div class="content">
-				<!-- <template> -->
-					<!-- <router-view></router-view> -->
-				<!-- </template> -->
 				<page></page>
 			</div>
 		</div>
@@ -155,8 +150,12 @@
 </script>
 
 <style scoped>
+	.content {
+		margin-right: 20px;
+	}
 	#app{
     background: #363636;
+    height: 100%;
   }
 	.main{
 		display: flex;
@@ -173,9 +172,30 @@
 	}
 	.ml20{
 		margin-left: 20px;
+		color: #f0a109;
+		border: 1px solid #c62133;
+		padding: 3px;
+		border-radius: 5px;
+		margin-bottom: 10px;
 	}
 	.about_money a{
-		color: #000000;
+		color: #f0a109;
+	}
+	.el-menu-vertical-demo {
+		background: #c62133;
+		border-color: #363636;
+	}
+	.el-menu-item-group {
+		background: #363636;
+	}
+	.el-submenu__title > span {
+		color: #fff;
+	}
+	.el-menu-vertical-demo .el-submenu {
+		background: #c62133;
+	}
+	.el-menu-item > a {
+		color: #fff;
 	}
 </style>
 
