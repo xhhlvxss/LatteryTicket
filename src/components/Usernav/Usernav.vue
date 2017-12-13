@@ -5,14 +5,12 @@
     </div>
     
     <el-menu
-      :default-active="activeIndex2"
       class="el-menu-demo"
       mode="horizontal"
       @select="handleSelect"
       background-color="#c62133"
-      text-color="#fff"
-      active-text-color="#ffd04b">
-      <el-submenu index="1">
+      text-color="#fff">
+      <!-- <el-submenu index="1">
         <template slot="title"><a href="" target="_blank">购票大厅</a></template>
         <div class="play_list">
           <div class="official">
@@ -34,12 +32,13 @@
         </div>
         
         
-      </el-submenu>
-      <el-menu-item index="2"><a href="" target="_blank">返回大厅</a></el-menu-item>
+      </el-submenu> -->
+      <el-menu-item index="1"><a href="lottery.html" target="_blank">购票大厅</a></el-menu-item>
+      <el-menu-item index="2"><a href="index.html" target="_blank">返回大厅</a></el-menu-item>
       <el-menu-item index="3"><a href="" target="_blank">联系客服</a></el-menu-item>
       <el-menu-item index="4"><a href="" target="_blank">规则说明</a></el-menu-item>
       <el-menu-item index="5"><a href="" target="_blank">游戏帮助</a></el-menu-item>
-      <el-menu-item index="6"><a href="" target="_blank">登出账号</a></el-menu-item>
+      <el-menu-item index="6" @click = "quit()"><a href="javascript:;" target="_blank">登出账号</a></el-menu-item>
     </el-menu>
 
   </div>
@@ -50,14 +49,19 @@ export default {
   name: 'usernav',
   data() {
       return {
-        activeIndex: '1',
         activeIndex2: '1'
       };
     },
     methods: {
       handleSelect(key, keyPath) {
         console.log(key, keyPath);
-      }
+      },
+      quit(){
+        localStorage.removeItem("username");
+        localStorage.removeItem("password");
+        window.location.href = "login.html";
+
+      },
     }
 }
 </script>
@@ -102,10 +106,15 @@ export default {
   .el-menu--horizontal .el-submenu .el-submenu__title {
     height: 40px;
     line-height: 40px;
+    border-radius: 5px!important;
   }
   .el-menu--horizontal > .el-menu-item {
     margin: 6px;
-    background: #fff
+    margin-top: 15px;
+    background: #fff;
+    border-radius: 5px;
+    height: 40px;
+    line-height: 40px
   }
 
 </style>

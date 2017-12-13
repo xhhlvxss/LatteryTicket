@@ -6,14 +6,15 @@
 				<el-row class="tac">
 				  <el-col >
 				    <!-- <h5>默认颜色</h5> -->
-				    <p class="ml20">账号: <span>3899324</span></p>
+				    <p class="ml20">账号: <span>{{username}}</span></p>
 				    <p class="ml20">余额: <span>334</span></p>
 				    <div class="ml20 about_money">
 				    	<a href="">
-				    		<img src="">充值
+				    		<i class="iconfont">&#xe602;</i>充值
 				    	</a>
+				    	<span></span>
 				    	<a href="">
-				    		<img src="">					    		
+				    		<i class="iconfont">&#xe61e;</i>提现				    		
 				    	</a>
 				    </div>
 				    <el-menu
@@ -26,7 +27,7 @@
 				      >
 				      <el-submenu index="1">
 				        <template slot="title">
-				          <i class="el-icon-location"></i>
+				          <!-- <i class="el-icon-location"></i> -->
 				          <span>投注记录</span>
 				        </template>
 				        <el-menu-item-group>
@@ -40,7 +41,7 @@
 				      </el-submenu>
 				      <el-submenu index="2">
 				        <template slot="title">
-				          <i class="el-icon-location"></i>
+				          <!-- <i class="el-icon-location"></i> -->
 				          <span>报表管理</span>
 				        </template>
 				        <el-menu-item-group>
@@ -60,7 +61,7 @@
 				      </el-submenu>
 				      <el-submenu index="3">
 				        <template slot="title">
-				          <i class="el-icon-location"></i>
+				          <!-- <i class="el-icon-location"></i> -->
 				          <span>账户管理</span>
 				        </template>
 				        <el-menu-item-group>
@@ -86,7 +87,7 @@
 				      </el-submenu>
 				      <el-submenu index="4">
 				        <template slot="title">
-				          <i class="el-icon-location"></i>
+				          <!-- <i class="el-icon-location"></i> -->
 				          <span>代理管理</span>
 				        </template>
 				        <el-menu-item-group>
@@ -106,7 +107,7 @@
 				      </el-submenu>
 				      <el-submenu index="5">
 				        <template slot="title">
-				          <i class="el-icon-location"></i>
+				          <!-- <i class="el-icon-location"></i> -->
 				          <span>短信公告</span>
 				        </template>
 				        <el-menu-item-group>
@@ -125,6 +126,10 @@
 			<div class="content">
 				<page></page>
 			</div>
+			<el-dialog title="提示" width="15%" :visible.sync="dialogTableVisible2" show-close = "false" class="login_box">
+	      <p>请先登录</p>
+	      <button @click="toLogin()">确定</button>
+	    </el-dialog>
 		</div>
 	</div>
 </template>
@@ -134,9 +139,22 @@
 	import page from 'components/User/Page.vue'
 	export default {
     name: 'app',
+    data() {
+    	return{
+    		username:'',
+    		dialogTableVisible2: false
+    	}
+    	
+    },
     components: {
       Usernav,
       page
+    },
+    created() {
+      // if(!localStorage.getItem("username")){
+      //   dialogTableVisible2 = true;
+      // }
+      this.username = localStorage.getItem("username");
     },
     methods: {
       handleOpen(key, keyPath) {
@@ -144,17 +162,22 @@
       },
       handleClose(key, keyPath) {
         console.log(key, keyPath);
+      },
+      toLogin(){
+        window.location.href = "login.html";
+
       }
     }
   }
 </script>
 
-<style scoped>
+<style >
 	.content {
 		margin-right: 20px;
 	}
 	#app{
     background: #363636;
+    width: 100%;
     height: 100%;
   }
 	.main{
@@ -178,8 +201,21 @@
 		border-radius: 5px;
 		margin-bottom: 10px;
 	}
+	.about_money{
+		border: 0;
+		padding-left: 0;
+		display: flex;
+	}
+	.about_money span{
+		flex: 1;
+	}
 	.about_money a{
 		color: #f0a109;
+		background: #c62133;
+		flex: 1;
+		text-align: center;
+		border-radius: 5px;
+		padding: 5px 10px;
 	}
 	.el-menu-vertical-demo {
 		background: #c62133;
@@ -197,5 +233,33 @@
 	.el-menu-item > a {
 		color: #fff;
 	}
+
+	.el-dialog__header{
+    background: url(./images/top_bg.png);
+  }
+  .el-dialog__header .el-dialog__title{
+    color: #FFFFFF;
+  }
+  .el-dialog__headerbtn .el-dialog__close{
+    color: #FFFFFF!important;
+  }
+  .login_box .el-dialog__headerbtn{
+    display: none!important;
+  }
+  .login_box p{
+    text-align: center;
+  }
+  .login_box button{
+    color: #fff;
+    background-color: #eb9e05;
+    border-color: #eb9e05;
+    cursor: pointer;
+    font-weight: 500;
+    padding: 12px 20px;
+    font-size: 14px;
+    border-radius: 4px;
+    margin: 0 auto;
+    display: block;
+  }
 </style>
 
