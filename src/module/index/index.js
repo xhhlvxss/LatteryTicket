@@ -10,6 +10,7 @@ import global_ from 'common/js/common.js'
 import ElementUi from 'element-ui'
 import 'element-ui/lib/theme-chalk/index.css'
 
+
 //加载路由中间件
 // Vue.use(VueRouter)
 Vue.use(VueResource)
